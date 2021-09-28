@@ -14,8 +14,10 @@ $ node producer.js
 
 # to start the consumer
 $ node consumer.js
-
 ```
 
-Please set the ENV="dev" in .env file for heartbeat at Seconds, otherwise for heartbeat will be at Minutes
+Open browser at http://localhost:5000/heartbeat
+
+
+p.s. Please set environment variable ENV="dev" in .env file for heartbeat at Seconds, otherwise for heartbeat will be at Minutes
 
