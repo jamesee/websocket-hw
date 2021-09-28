@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Websocket Exercise</title>
+</head>
+
+<body>
+    <div id='messages'></div>
+    <script>
+        const WEBSOCKET_PORT = 3030
+        const getElement = (id) => document.getElementById(id);
+        const addMessage = (message) => {
+            const pTag = document.createElement('p');
+            pTag.appendChild(document.createTextNode(message));
+            getElement('messages').appendChild(pTag);
+        };
+
+        const insertMessage = (message) => {
+            getElement('messages').innerHTML = message;
+        };
+
+        const ws = new WebSocket(`ws://localhost:${WEBSOCKET_PORT}`);
+        ws.onopen = () => {
+            console.log('Websocket connected ...');
+        };
+        ws.onmessage = (event) => {
+            console.log(event.data)
+            // addMessage(event.data)
+            insertMessage(event.data)
+        };
+
+    </script>
+</body>
+
+</html>
